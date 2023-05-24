@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson_9/widgets/alert_dialoge.dart';
 class NotePage extends StatefulWidget {
   const NotePage({Key? key}) : super(key: key);
 
@@ -22,28 +23,16 @@ class _NotePageState extends State<NotePage> {
             onTap: (){
               showDialog(context: context, builder: (context){
 
-                return AlertDialog(
-                        content: TextField(
-                          controller: controller,
-                          decoration: InputDecoration(
-                            hintText: 'Enter Name'
+                return CustomAlertDialoge(controller: controller, onPress: (){
 
-                          ),
+                  setState(() {
+                    names.add(controller.text);
+                    controller.clear();
+                    Navigator.pop(context);
+                  });
 
-                        ),
-                  actions: [
-                    ElevatedButton(onPressed: (){
-                      setState(() {
-                        names.add(controller.text);
-                        controller.clear();
-                        Navigator.pop(context);
-                      });
 
-                    },
-                        child: Text('Save'))
-                  ],
-
-                );
+                });
 
               });
 
