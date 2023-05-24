@@ -9,6 +9,6 @@ class DemoPage extends StatefulWidget {
 class _DemoPageState extends State<DemoPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return AppBar(title: Text('GitHUb'),);
   }
 }
